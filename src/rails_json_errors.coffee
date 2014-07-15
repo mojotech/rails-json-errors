@@ -1,10 +1,13 @@
-window.RJE = window.RJW || {}
+displayJSONErrors: (rawJson, displayMethod) ->
+  parsed = JSON.parse(rawJson)
+  return unless parsed.errors?
 
-window.RJE.displayJsonErrors = (rawJson) ->
-  message = []
-  json = $.parseJSON(rawJson)
-  _.each json.errors, (val, key) ->
-    _.each val, (elm) ->
-      message.push(key+": "+elm)
+  messages = []
+  Object.keys(parsed.errors).map (errType) ->
+    parsed.errors[errType].map (errMsg) ->
+      messages.push "#{errType}: #{errMsg}"
 
-  alert message.join("\n")
+  if typeof displayMethod is 'function'
+    displayMethod messages
+  else
+    alert messages.join('\n')

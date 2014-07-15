@@ -1,13 +1,34 @@
-window.RJE = window.RJW || {};
 
-window.RJE.displayJsonErrors = function(rawJson) {
-  var json, message;
-  message = [];
-  json = $.parseJSON(rawJson);
-  _.each(json.errors, function(val, key) {
-    return _.each(val, function(elm) {
-      return message.push(key + ": " + elm);
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(factory);
+  } else if (typeof exports === 'object') {
+    module.exports = factory(require, exports, module);
+  } else {
+    root.RJE = factory();
+  }
+}(this, function(require, exports, module) {
+
+return ({
+  displayJSONErrors: function(rawJson, displayMethod) {
+    var messages, parsed;
+    parsed = JSON.parse(rawJson);
+    if (parsed.errors == null) {
+      return;
+    }
+    messages = [];
+    Object.keys(parsed.errors).map(function(errType) {
+      return parsed.errors[errType].map(function(errMsg) {
+        return messages.push("" + errType + ": " + errMsg);
+      });
     });
-  });
-  return alert(message.join("\n"));
-};
+    if (typeof displayMethod === 'function') {
+      return displayMethod(messages);
+    } else {
+      return alert(messages.join('\n'));
+    }
+  }
+});
+;
+
+}));
