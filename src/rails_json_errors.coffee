@@ -1,0 +1,2 @@
+window.RJE = window.RJW || {}
+
