@@ -5,7 +5,7 @@
     "Craig P Jolicoeur <craig@mojotech.com>",
     "Aaron Rosenberg <aaron@mojotech.com>"
   ],
-  "description": "Easily display rails-api backend JSON error packets in an alert dialog",
+  "description": "Easily parse and handle json error packets from a Rails API",
   "main": "public/rails_json_errors.js",
   "keywords": [
     "rails",

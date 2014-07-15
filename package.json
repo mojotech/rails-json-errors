@@ -1,7 +1,7 @@
 {
   "name": "rails-json-errors",
   "version": "0.7.0",
-  "description": "Display Rails errors sent to the front end in JSON",
+  "description": "Easily parse and handle json error packets from a Rails API",
   "homepage": "https://github.com/mojotech/rails-json-errors",
   "author": "Craig Jolicoeur <craig@mojotech.com> (http://www.mojotech.com)",
   "contributors": [

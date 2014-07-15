@@ -1,3 +1,3 @@
 # Rails JSON Errors
 
-Easily display JSON error packets from a rails API in an alert dialog.
+Easily parse and handle json error packets from a Rails API
