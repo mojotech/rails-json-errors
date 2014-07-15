@@ -1,0 +1,33 @@
+{
+  "name": "rails-json-errors",
+  "version": "0.7.0",
+  "description": "Display Rails errors sent to the front end in JSON",
+  "homepage": "https://github.com/mojotech/rails-json-errors",
+  "author": "Craig Jolicoeur <craig@mojotech.com> (http://www.mojotech.com)",
+  "contributors": [
+    "Aaron Rosenberg <aaron@mojotech.com> (http://www.mojotech.com)"
+  ],
+  "keywords": [
+    "rails",
+    "json",
+    "errors",
+    "error"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mojotech/rails-json-errors"
+  },
+  "bugs": {
+    "url": "https://github.com/mojotech/rails-json-errors/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-coffee": "^2.1.1",
+    "gulp-util": "^2.2.20"
+  }
+}
