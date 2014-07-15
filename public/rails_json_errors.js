@@ -18,7 +18,12 @@ return ({
     }
     messages = [];
     Object.keys(parsed.errors).map(function(errType) {
-      return parsed.errors[errType].map(function(errMsg) {
+      var errors;
+      errors = parsed.errors[errType];
+      if (!(errors instanceof Array)) {
+        errors = [errors];
+      }
+      return errors.map(function(errMsg) {
         return messages.push("" + errType + ": " + errMsg);
       });
     });

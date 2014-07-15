@@ -4,7 +4,10 @@ displayJSONErrors: (rawJson, displayMethod) ->
 
   messages = []
   Object.keys(parsed.errors).map (errType) ->
-    parsed.errors[errType].map (errMsg) ->
+    errors = parsed.errors[errType]
+    errors = [errors] unless errors instanceof Array
+
+    errors.map (errMsg) ->
       messages.push "#{errType}: #{errMsg}"
 
   if typeof displayMethod is 'function'

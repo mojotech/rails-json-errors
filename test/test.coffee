@@ -15,7 +15,7 @@ describe 'RJE', ->
   describe 'guard against no errors', ->
     it 'returns early if no errors are in the json', ->
       spy = sinon.spy()
-      RJE.displayJSONErrors JSON.stringify({something: 'without errors'}), spy
+      RJE.displayJSONErrors JSON.stringify(something: 'without errors'), spy
 
       assert spy.notCalled
 
@@ -47,3 +47,9 @@ describe 'RJE', ->
 
         assert spy.called
         assert.deepEqual spy.firstCall.args[0], ['foo: bar', 'foo: baz']
+
+  it 'can also take a single error', ->
+    spy = sinon.spy()
+    RJE.displayJSONErrors JSON.stringify(errors: {errorType: 'one error'}), spy
+
+    assert.deepEqual spy.firstCall.args[0], ['errorType: one error']
